@@ -13,3 +13,10 @@
 .externalNativeBuild
 .cxx
 /.idea/
+
+
+*.jar
+merged_jar/dump.txt
+merged_jar/mapping.txt
+merged_jar/usage.txt
+merged_jar/seeds.txt

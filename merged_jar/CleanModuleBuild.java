@@ -9,7 +9,7 @@ import java.io.IOException;
  */
 public class CleanModuleBuild {
 
-    static String commomlastFileStr = "\\build\\intermediates\\classes\\release\\com\\yuntongxun";
+    static String commomlastFileStr = "\\build\\intermediates\\classes\\release\\com\\barnettwong";
 
     public static void main(String[] args) {
         File directory = new File(System.getProperty("user.dir"));
