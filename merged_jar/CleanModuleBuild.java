@@ -10,50 +10,39 @@ import java.io.IOException;
 public class CleanModuleBuild {
 
     static String commomlastFileStr = "\\build\\intermediates\\classes\\release\\com\\yuntongxun";
-    static String share = "\\yuntx_plugin_sharemeeting";
 
     public static void main(String[] args) {
         File directory = new File(System.getProperty("user.dir"));
         try {
-            //输出E:\android\ProjectSpaces\StudioProjects\IMPlusAndroidSDK
+            //输出F\:\\Android\\AndroidSDK
             System.out.println(directory.getCanonicalPath());//获取标准的路径
             System.out.println(directory.getAbsolutePath());//获取绝对路径
             String rootPath = directory.getParentFile().getCanonicalPath();
-            //1.删除common中的make后的文件夹
-            String commonPath = rootPath + "\\yuntx_plugin_common" + commomlastFileStr;//"\\build\\intermediates\\classes\\commen_\\release\\com\\yuntongxun";
-            System.out.println(commonPath);
-            File commonFile = new File(commonPath);
-            clearPluginFile(commonFile, true);
+            //1.删除mymodule1中的make后的文件夹
+            String mymodule1Path = rootPath + "\\mymodule1" + commomlastFileStr;//"\\build\\intermediates\\classes\\commen_\\release\\com\\barnettwong";
+            System.out.println(mymodule1Path);
+            File mymodule1File = new File(mymodule1Path);
+            clearPluginFile(mymodule1File, true);
 
-            //2.删除im中的make后的文件
-            String imPath = rootPath + "\\yuntx_plugin_im" + commomlastFileStr;
-            File imFile = new File(imPath);
-            clearPluginFile(imFile, false);
+            //2.删除mymodule2中的make后的文件
+            String mymodule2Path = rootPath + "\\mymodule2" + commomlastFileStr;
+            File mymodule2File = new File(mymodule2Path);
+            clearPluginFile(mymodule2File, false);
 
-            //3.删除voip中make后的文件
-            String voipPath = rootPath + "\\yuntx_plugin_voip" + commomlastFileStr;
-            File voipFile = new File(voipPath);
-            clearPluginFile(voipFile, false);
+            //3.删除mymodule3中make后的文件
+            String mymodule3Path = rootPath + "\\mymodule3" + commomlastFileStr;
+            File mymodule3File = new File(mymodule3Path);
+            clearPluginFile(mymodule3File, false);
 
-            //4.删除ShareMeeting中make后的文件
-            String sharePath = rootPath + share + commomlastFileStr;
-            File shareFile = new File(sharePath);
-            clearPluginFile(shareFile, false);
+            //4.删除mymodule4中make后的文件
+            String mymodule4Path = rootPath + "\\mymodule4" + commomlastFileStr;
+            File mymodule4File = new File(mymodule4Path);
+            clearPluginFile(mymodule4File, false);
 
-            //5.删除LiveChatRoom
-            String liveChatRoomPath = rootPath + "\\yuntx_plugin_livechatroom" + commomlastFileStr;
-            File liveChatRoomFile = new File(liveChatRoomPath);
-            clearPluginFile(liveChatRoomFile, false);
-
-            //6.删除Live
-            String livePath = rootPath + "\\yuntx_plugin_live" + commomlastFileStr;
-            File liveFile = new File(livePath);
-            clearPluginFile(liveFile, false);
-
-            //7.删除meeting
-            String meetingPath = rootPath + "\\yuntx_plugin_meeting" + commomlastFileStr;
-            File meetingFile = new File(meetingPath);
-            clearPluginFile(meetingFile, false);
+            //5.删除mymodule5
+            String mymodule5Path = rootPath + "\\mymodule5" + commomlastFileStr;
+            File mymodule5File = new File(mymodule5Path);
+            clearPluginFile(mymodule5File, false);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -80,23 +69,11 @@ public class CleanModuleBuild {
             if (isEmpty(name)) {
                 continue;
             }
-            if (name.startsWith("yuntx_plugin_")) {
+            if (name.startsWith("mymodule")) {
                 file1.setWritable(true);
                 deleteDir(file1);
             }
 
-            if ("ecsdk".equals(file1.getName())) {
-                clearPluginFile(file1, false);
-                if (isCommon) {
-                    File[] listFiles = file1.listFiles();
-                    for (File listFile : listFiles) {
-                        if (listFile != null && "core".equals(listFile.getName())) {
-                            clearServiceFile(listFile);
-                            break;
-                        }
-                    }
-                }
-            }
         }
     }
 

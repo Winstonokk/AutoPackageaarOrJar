@@ -5,6 +5,6 @@
  ./gradlew :mymodule4:assembleRelease
  ./gradlew :mymodule5:assembleRelease
 cd merged_jar
-javac -encoding utf-8 CleanModuleBuild1.java
-java CleanModuleBuild1
+javac -encoding utf-8 CleanModuleBuild.java
+java CleanModuleBuild
 ./package_script1.sh
