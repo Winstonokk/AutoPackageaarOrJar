@@ -1,0 +1,2 @@
+include ':app', ':mymodule1', ':mymodule2', ':mymodule3', ':mymodule4', ':mymodule5'
+rootProject.name='TestAutoPackage'
